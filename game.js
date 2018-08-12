@@ -379,7 +379,7 @@ Ship = function () {
               0, -11,
               6,   7]);
 
-  this.color = 'navy';
+  this.color = 'red';
   this.solid = true;
 
   this.children.exhaust = new Sprite();
@@ -421,6 +421,7 @@ Ship = function () {
     }
     if (KEY_STATUS.space) {
       if (this.delayBeforeBullet <= 0) {
+        this.delayBeforeBullet=10;
         for (var i = 0; i < this.bullets.length; i++) {
           if (!this.bullets[i].visible) {
             SFX.laser();
@@ -660,7 +661,7 @@ Asteroid = function () {
               -4, -10,
               -4,  -5]);
 
-  this.color = 'lightgray';
+  this.color = 'Blue';
   this.solid = true;
   this.visible = true;
   this.scale = 6;
@@ -674,7 +675,7 @@ Asteroid = function () {
     this.scale /= 3;
     if (this.scale > 0.5) {
       // break into fragments
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 2; i++) {
         var roid = $.extend(true, {}, this);
         roid.vel.x = Math.random() * 6 - 3;
         roid.vel.y = Math.random() * 6 - 3;
